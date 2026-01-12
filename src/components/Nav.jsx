@@ -16,7 +16,7 @@ const Nav = () => {
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 60); // slightly higher threshold
+      setScrolled(window.scrollY > 60);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -35,7 +35,7 @@ const Nav = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className={`fixed inset-x-0 top-0 z-100 transition-all duration-500 ${
           scrolled
-            ? "bg-background/85 backdrop-blur-xl border-b border-border/50 shadow-xl"
+            ? "bg-background/85 backdrop-blur-xl border-b border-zinc-500/50 shadow-xl"
             : "bg-transparent border-b border-transparent"
         }`}
       >
@@ -47,13 +47,13 @@ const Nav = () => {
               className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-md"
             >
               <span className="text-2xl sm:text-3xl font-serif font-extrabold text-white/80 tracking-tight">
-                MV<span className="text-red-500/80">1</span>
+                MV<span className="text-gradient-ember">1</span>
               </span>
               <div className="absolute -bottom-1 left-0 h-0.5 w-0 bg-primary group-hover:w-full transition-all duration-300" />
             </a>
 
             {/* Desktop menu */}
-            <div className="hidden md:flex items-center gap-1.5 lg:gap-2">
+            <div className="hidden md:flex items-center gap-1.5 lg:gap-6">
               {navItems.map((item, i) => (
                 <motion.a
                   key={item.label}
@@ -61,7 +61,7 @@ const Nav = () => {
                   initial={{ opacity: 0, y: -12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.08 + 0.3, duration: 0.4 }}
-                  className="relative px-3 lg:px-4 py-2 text-sm lg:text-base font-medium text-white/80 hover:text-foreground transition-colors rounded-md hover:bg-accent/10 focus:outline-none focus:ring-2 focus:ring-primary/40"
+                  className="relative px-3 lg:px-4 py-2 text-xl  font-dms font-semibold text-white/80 hover:text-foreground transition-colors rounded-md hover:bg-accent/10 focus:outline-none focus:ring-2 focus:ring-primary/40"
                   onClick={closeMobile}
                 >
                   {item.label}
