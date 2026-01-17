@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { HiMenu } from "react-icons/hi";
 import { HiXMark } from "react-icons/hi2";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
   { label: "Career", href: "#timeline" },

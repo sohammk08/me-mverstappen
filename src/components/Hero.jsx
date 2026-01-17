@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import heroImage from "/in-helmet.jpg";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { SiRedbull } from "react-icons/si";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const stats = [
   { value: "71", label: "Grand Prix Wins" },

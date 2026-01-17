@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { FiArrowRight } from "react-icons/fi";
 
 const teams = [
   {
@@ -31,7 +30,10 @@ function Teams() {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="teams" className="relative py-24 md:py-32 overflow-hidden bg-neutral-950">
+    <section
+      id="teams"
+      className="relative py-24 md:py-32 overflow-hidden bg-neutral-950"
+    >
       {/* Background gradients */}
       <div className="absolute inset-0 bg-linear-to-b from-background via-card/30 to-background pointer-events-none" />
       <div className="absolute top-0 left-1/4 w-1/2 h-1/2 bg-gradient-radial from-primary/5 via-transparent to-transparent pointer-events-none" />
@@ -70,7 +72,7 @@ function Teams() {
               transition={{ duration: 0.6, delay: 0.2 + index * 0.15 }}
               className="group relative"
             >
-              <div className="relative flex flex-col h-136 overflow-hidden rounded-3xl bg-neutral-900/80 border border-neutral-800 hover:border-orange-500/30 shadow-xl hover:shadow-orange-500/20 tile-hover-effect">
+              <div className="relative flex flex-col h-136 overflow-hidden rounded-3xl bg-neutral-900/80 border border-neutral-800 hover:border-orange-500/30 shadow-xl hover:shadow-orange-500/10 tile-hover-effect">
                 {/* Image & overlay */}
                 <div className="relative min-h-64 overflow-hidden">
                   <div
