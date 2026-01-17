@@ -4,6 +4,7 @@
   --font-mrat: "Montserrat";
   --font-dms: "DM Sans";
   --font-bebas: "Bebas Neue";
+  --font-doto: "Doto";
 }
 
 @layer base {
@@ -209,7 +210,8 @@
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     border: 1px solid hsla(var(--glass-border), 0.2);
-    box-shadow: var(--shadow-glass),
+    box-shadow:
+      var(--shadow-glass),
       inset 0 1px 0 hsla(var(--glass-highlight), 0.1);
   }
 
@@ -220,7 +222,9 @@
       hsla(222 35% 12%, 0.6) 100%
     );
     border-color: hsla(var(--primary), 0.3);
-    box-shadow: 0 12px 40px hsla(0, 0%, 0%, 0.4), var(--shadow-glow),
+    box-shadow:
+      0 12px 40px hsla(0, 0%, 0%, 0.4),
+      var(--shadow-glow),
       inset 0 1px 0 hsla(var(--glass-highlight), 0.15);
   }
 
@@ -249,9 +253,12 @@
       hsla(220, 30%, 20%, 0.1) 50%,
       hsla(0, 100%, 50%, 0.2) 100%
     );
-    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
