@@ -68,15 +68,15 @@ function Achievements() {
   return (
     <section
       id="achievements"
-      className="relative py-24 md:py-32 overflow-hidden bg-gray-950"
+      className="relative py-20 md:py-28 overflow-hidden bg-gray-950"
     >
       {/* Header */}
-      <div className="text-center mb-16 md:mb-20">
+      <div className="text-center -mb-10 md:mb-18">
         <motion.span
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-sm font-medium text-amber-400 uppercase tracking-widest"
+          className="text-xs font-dms font-medium text-orange-400 uppercase tracking-widest"
         >
           Hall of Fame
         </motion.span>
@@ -84,70 +84,77 @@ function Achievements() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl md:text-5xl lg:text-6xl mt-3 font-serif font-bold text-white"
+          className="text-[1.75rem] md:text-4xl lg:text-5xl mt-0.5 font-serif font-bold text-white"
         >
           Record-Breaking{" "}
-          <span className="bg-linear-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent">
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-400 via-red-500 to-yellow-500">
             Achievements
           </span>
         </motion.h2>
       </div>
 
       <div
-        className="relative z-20 container mx-auto px-6 lg:px-12"
+        className="relative z-20 container mx-auto px-5 lg:px-10"
         ref={sectionRef}
       >
-        <div className="flex space-x-5">
-          <div className="w-200 h-230">
-            <img src="/victory-pose.png" className="h-full w-full" />
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-4">
+          <div className="w-full lg:w-auto lg:shrink-0">
+            <div className="relative w-full lg:w-160 h-160 md:h-184 mx-auto">
+              <img
+                src="/victory-pose.png"
+                className="h-full w-full object-cover"
+                alt="Victory pose"
+              />
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-linear-to-t from-gray-950 via-transparent pointer-events-none z-10" />
+            </div>
           </div>
-          <div className="w-1/2 absolute inset-0 bg-linear-to-t from-gray-950 via-transparent pointer-events-none z-10" />
-          <div className="flex flex-col justify-between my-15">
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto mb-16">
+
+          {/* Content */}
+          <div className="flex-1 flex flex-col justify-center lg:justify-between lg:my-12">
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 max-w-5xl mx-auto mb-10 lg:mb-14">
               {achievements.map((stat, index) => {
                 const Icon = stat.icon;
                 return (
-                  <>
-                    <motion.div
-                      key={stat.label}
-                      initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                      animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-                      transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
-                      className="flex flex-col justify-between p-4 rounded-2xl overflow-hidden text-center backdrop-blur-md border transition-all duration-300 hover:scale-105 hover:shadow-2xl bg-white/5 border-white/10 hover:bg-white/10"
+                  <motion.div
+                    key={stat.label}
+                    initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                    animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                    transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
+                    className="flex flex-col justify-between p-3.5 rounded-2xl overflow-hidden text-center backdrop-blur-md border transition-all duration-300 hover:scale-103 hover:shadow-xl bg-white/5 border-white/10 hover:bg-white/10"
+                  >
+                    {/* Icon */}
+                    <div
+                      className={`py-1 rounded-full transition-transform duration-300 ${
+                        stat.featured
+                          ? "bg-linear-to-br from-yellow-400 to-amber-500"
+                          : "bg-linear-to-br from-blue-500/20 to-blue-600/10"
+                      }`}
                     >
-                      {/* Icon */}
-                      <div
-                        className={` py-1.5 rounded-full  transition-transform duration-300 group-hover:scale-110 ${
+                      <Icon
+                        className={`w-5 h-5 md:w-6 md:h-6 mx-auto ${
+                          stat.featured ? "text-black" : "text-blue-400"
+                        }`}
+                      />
+                    </div>
+
+                    {/* Stats */}
+                    <div className="-space-x-0.5 mt-2">
+                      <p
+                        className={`text-2xl md:text-4xl lg:text-5xl font-bebas font-extrabold mt-2 mb-1 transition-all duration-300 ${
                           stat.featured
-                            ? "bg-linear-to-br from-yellow-400 to-amber-500"
-                            : "bg-linear-to-br from-blue-500/20 to-blue-600/10"
+                            ? "bg-linear-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent"
+                            : "text-white group-hover:text-blue-400"
                         }`}
                       >
-                        <Icon
-                          className={`w-6 h-6 md:w-7 md:h-7 mx-auto ${
-                            stat.featured ? "text-black" : "text-blue-400"
-                          }`}
-                        />
-                      </div>
-
-                      {/* Stats */}
-                      <div className="-space-x-0.5 mt-3">
-                        <p
-                          className={`text-4xl md:text-5xl lg:text-6xl font-bebas font-extrabold mt-3 mb-1 transition-all duration-300 ${
-                            stat.featured
-                              ? "bg-linear-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent group-hover:scale-105"
-                              : "text-white group-hover:text-blue-400"
-                          }`}
-                        >
-                          {stat.value}
-                        </p>
-                        <p className="text-gray-200 font-bold font-dms uppercase mb-1">
-                          {stat.label}
-                        </p>
-                      </div>
-                    </motion.div>
-                  </>
+                        {stat.value}
+                      </p>
+                      <p className="text-xs md:text-sm text-gray-200 font-bold font-dms uppercase mb-1">
+                        {stat.label}
+                      </p>
+                    </div>
+                  </motion.div>
                 );
               })}
             </div>
@@ -157,26 +164,26 @@ function Achievements() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="max-w-3xl"
+              className="max-w-3xl mx-auto lg:mx-0"
             >
-              <h3 className="text-4xl font-dms font-extrabold text-center text-white mb-8">
+              <h3 className="text-xl md:text-2xl font-dms font-extrabold text-center text-white mb-6 md:mb-7">
                 2025 Season{" "}
                 <span className="bg-linear-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
                   Victories
                 </span>
               </h3>
-              <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-2 gap-3">
                 {recentWins.map((win, index) => (
                   <motion.div
                     key={win.race}
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
-                    className="group relative p-5 rounded-xl backdrop-blur-md bg-white/5 border border-white/10 text-center overflow-hidden transition-all duration-300 hover:bg-white/10 hover:scale-105 hover:shadow-xl"
+                    className="group relative p-3 md:p-4 rounded-xl backdrop-blur-md bg-white/5 border border-white/10 text-center overflow-hidden transition-all duration-300 hover:bg-white/10 hover:scale-103 hover:shadow-lg"
                   >
                     {/* Hover gradient */}
                     <div className="absolute inset-0 bg-linear-to-t from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <p className="relative text-3xl font-bebas tracking-wide font-bold text-white/90 italic mt-2 group-hover:bg-linear-to-r group-hover:from-amber-400 group-hover:to-orange-500 group-hover:bg-clip-text group-hover:text-transparent transition-colors leading-tight">
+                    <p className="relative text-lg md:text-2xl font-bebas tracking-wide font-bold text-white/90 italic mt-1 md:mt-2 group-hover:bg-linear-to-r group-hover:from-amber-400 group-hover:to-orange-500 group-hover:bg-clip-text group-hover:text-transparent transition-colors leading-tight">
                       {win.race}
                     </p>
                   </motion.div>

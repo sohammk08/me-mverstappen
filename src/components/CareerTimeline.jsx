@@ -71,21 +71,21 @@ const CareerTimeline = () => {
   return (
     <section
       id="timeline"
-      className="relative py-24 md:py-32 overflow-hidden bg-neutral-950"
+      className="relative py-20 md:py-28 overflow-hidden bg-neutral-950"
     >
       <div className="absolute inset-0 bg-linear-to-b from-neutral-950 via-neutral-900/5 to-neutral-950 pointer-events-none" />
 
-      <div className="container mx-auto px-6 lg:px-12">
+      <div className="container mx-auto px-5 lg:px-10">
         {/* Header */}
-        <div className="text-center mb-16 md:mb-24 max-w-3xl mx-auto">
+        <div className="text-center mb-14 md:mb-20 max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 mb-4"
+            className="inline-flex items-center gap-2 mb-3"
           >
-            <span className="text-sm font-dms font-medium text-orange-400 uppercase tracking-widest">
+            <span className="text-xs font-dms font-medium text-orange-400 uppercase tracking-widest">
               Career Journey
             </span>
           </motion.div>
@@ -94,7 +94,7 @@ const CareerTimeline = () => {
             whileInView={{ opacity: 1, y: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-neutral-200 mb-4"
+            className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-neutral-200 mb-3"
           >
             The Road to{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-400 via-red-500 to-yellow-500">
@@ -106,7 +106,7 @@ const CareerTimeline = () => {
             whileInView={{ opacity: 1, y: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-neutral-400 text-lg"
+            className="text-neutral-400 text-base"
           >
             From karting prodigy to four-time world champion — a career defined
             by relentless pursuit of perfection.
@@ -114,11 +114,11 @@ const CareerTimeline = () => {
         </div>
 
         {/* Timeline */}
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-3xl mx-auto">
           {/* Left vertical line */}
-          <div className="absolute left-6 md:left-8 top-0 bottom-0 w-[1.3px] bg-linear-to-b from-transparent via-neutral-800 via-50% to-transparent pointer-events-none" />
+          <div className="absolute left-5 md:left-7 top-0 bottom-0 w-px bg-linear-to-b from-transparent via-neutral-800 via-50% to-transparent pointer-events-none" />
 
-          <div className="space-y-6 md:space-y-8">
+          <div className="space-y-5 md:space-y-7">
             {milestones.map((milestone, index) => (
               <motion.div
                 key={milestone.year}
@@ -126,15 +126,15 @@ const CareerTimeline = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="relative pl-16 md:pl-20"
+                className="relative pl-14 md:pl-18"
               >
                 {/* Horizontal line to card */}
-                <div className="absolute left-8 md:left-10 top-1/2 -translate-y-1/2 w-8 md:w-61 h-px bg-linear-to-r from-transparent via-neutral-700 to-neutral-700" />
+                <div className="absolute left-7 md:left-9 top-1/2 -translate-y-1/2 w-7 md:w-52.5 h-px bg-linear-to-r from-transparent via-neutral-700 to-neutral-700" />
 
                 {/* Year badge/dot on vertical line */}
-                <div className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5">
+                <div className="absolute left-2.5 md:left-3.5 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 flex items-center gap-1">
                   <span
-                    className={`text-[11px] md:text-xs font-mono font-medium ${
+                    className={`text-[10px] md:text-[11px] font-mono font-medium ${
                       milestone.highlight
                         ? "text-orange-400/80"
                         : "text-neutral-500"
@@ -143,9 +143,9 @@ const CareerTimeline = () => {
                     {milestone.year}
                   </span>
                   <div
-                    className={`w-2 h-2 rounded-full ${
+                    className={`w-1.5 h-1.5 rounded-full ${
                       milestone.highlight
-                        ? "bg-orange-500 shadow-[0_0_0_4px_rgba(251,146,60,0.1)]"
+                        ? "bg-orange-500 shadow-[0_0_0_3px_rgba(251,146,60,0.1)]"
                         : "bg-neutral-700"
                     }`}
                   />
@@ -157,24 +157,24 @@ const CareerTimeline = () => {
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.5, delay: 0.2 + index * 0.15 }}
-                    className={`relative p-4 rounded-xl transition-all duration-300 ${
+                    className={`relative p-3.5 rounded-xl transition-all duration-300 ${
                       milestone.highlight
                         ? "bg-neutral-900/80 border border-orange-500/30 shadow-lg shadow-orange-500/10"
                         : "bg-neutral-900/60 border border-neutral-800/60"
                     } hover:border-orange-500/40 hover:shadow-orange-500/5`}
                   >
-                    <div className="absolute left-3 top-3 w-8 h-8 rounded-full bg-neutral-800/60 flex items-center justify-center border border-neutral-700/50">
+                    <div className="absolute left-2.5 top-2.5 w-7 h-7 rounded-full bg-neutral-800/60 flex items-center justify-center border border-neutral-700/50">
                       <milestone.icon
-                        className={`w-4 h-4 ${
+                        className={`w-3.5 h-3.5 ${
                           milestone.highlight
                             ? "text-orange-400"
                             : "text-neutral-500"
                         }`}
                       />
                     </div>
-                    <div className="pt-10">
+                    <div className="pt-9">
                       <h3
-                        className={`text-lg md:text-xl font-serif font-bold mb-2 transition-colors duration-300 ${
+                        className={`text-base md:text-lg font-serif font-bold mb-1.5 transition-colors duration-300 ${
                           milestone.highlight
                             ? "text-orange-400/80"
                             : "text-neutral-200"
@@ -182,7 +182,7 @@ const CareerTimeline = () => {
                       >
                         {milestone.title}
                       </h3>
-                      <p className="text-neutral-400 text-sm leading-relaxed">
+                      <p className="text-neutral-400 text-xs leading-relaxed">
                         {milestone.desc}
                       </p>
                     </div>

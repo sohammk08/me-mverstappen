@@ -39,21 +39,21 @@ const Nav = () => {
             : "bg-transparent border-b border-transparent"
         }`}
       >
-        <div className="mx-30">
-          <div className="flex items-center justify-between h-25">
+        <div className="mx-24">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <a
               href="#"
-              className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-md"
+              className="flex items-center gap-2 sm:gap-2.5 group focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-md"
             >
-              <span className="text-2xl sm:text-3xl font-serif font-extrabold text-white/80 tracking-tight">
+              <span className="text-xl sm:text-2xl font-serif font-extrabold text-white/80 tracking-tight">
                 MV<span className="text-gradient-ember">1</span>
               </span>
               <div className="absolute -bottom-1 left-0 h-0.5 w-0 bg-primary group-hover:w-full transition-all duration-300" />
             </a>
 
             {/* Desktop menu */}
-            <div className="hidden md:flex items-center gap-1.5 lg:gap-6">
+            <div className="hidden md:flex items-center gap-1 lg:gap-5">
               {navItems.map((item, i) => (
                 <motion.a
                   key={item.label}
@@ -61,11 +61,11 @@ const Nav = () => {
                   initial={{ opacity: 0, y: -12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.08 + 0.3, duration: 0.4 }}
-                  className="relative px-3 lg:px-4 py-2 text-xl  font-dms font-semibold text-white/80 hover:text-foreground transition-colors rounded-md hover:bg-accent/10 focus:outline-none focus:ring-2 focus:ring-primary/40"
+                  className="relative px-2.5 lg:px-3 py-1.5 font-dms font-medium text-white/80 hover:text-foreground transition-colors rounded-md hover:bg-accent/10 focus:outline-none focus:ring-2 focus:ring-primary/40"
                   onClick={closeMobile}
                 >
                   {item.label}
-                  <span className="absolute inset-x-3 bottom-1.5 h-px bg-primary/60 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                  <span className="absolute inset-x-2.5 bottom-1 h-px bg-primary/60 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                 </motion.a>
               ))}
             </div>
@@ -73,11 +73,11 @@ const Nav = () => {
             {/* Mobile toggle */}
             <button
               onClick={toggleMobile}
-              className="md:hidden p-2.5 text-foreground hover:bg-accent/20 active:bg-accent/30 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary/40"
+              className="md:hidden p-2 text-foreground hover:bg-accent/20 active:bg-accent/30 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary/40"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
             >
-              {mobileOpen ? <HiXMark size={28} /> : <HiMenu size={28} />}
+              {mobileOpen ? <HiXMark size={24} /> : <HiMenu size={24} />}
             </button>
           </div>
         </div>
@@ -95,7 +95,7 @@ const Nav = () => {
             onClick={closeMobile}
           >
             <div
-              className="flex flex-col items-center justify-center h-full gap-10 px-6"
+              className="flex flex-col items-center justify-center h-full gap-8 px-6"
               onClick={(e) => e.stopPropagation()}
             >
               {navItems.map((item, i) => (
@@ -107,7 +107,7 @@ const Nav = () => {
                   exit={{ opacity: 0, y: 20 }}
                   transition={{ delay: i * 0.07, duration: 0.35 }}
                   onClick={closeMobile}
-                  className="text-4xl sm:text-5xl font-serif font-bold text-white/80 hover:text-primary transition-colors duration-300 active:scale-95"
+                  className="text-3xl sm:text-4xl font-serif font-bold text-white/80 hover:text-primary transition-colors duration-300 active:scale-95"
                 >
                   {item.label}
                 </motion.a>
