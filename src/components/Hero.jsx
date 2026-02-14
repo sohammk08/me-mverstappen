@@ -78,12 +78,9 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="inline-flex items-center text-base sm:text-lg justify-center uppercase px-3 py-1.5 rounded-2xl font-light bg-red-500/30 backdrop-blur-sm border border-zinc-800/80 leading-relaxed w-max"
+            className="inline-flex items-center text-base sm:text-lg justify-center uppercase px-26 py-2 rounded-xl font-light bg-red-500/30 backdrop-blur-sm border border-zinc-800/80 leading-relaxed"
           >
-            <SiRedbull
-              size={32}
-              className="text-red-500 mr-2 my-auto sm:size-40"
-            />
+            <SiRedbull size={32} className="text-red-500 mr-2 my-auto" />
             <span className="my-auto font-dms text-white font-semibold text-sm sm:text-base">
               Red Bull Racing Driver
             </span>
@@ -94,7 +91,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, staggerChildren: 0.12 }}
-            className="flex flex-wrap justify-start mt-4 sm:mt-6 gap-3 sm:gap-4 md:gap-5"
+            className="flex flex-wrap justify-start gap-3 sm:gap-4 md:gap-5"
           >
             {stats.map((stat, i) => (
               <motion.div
